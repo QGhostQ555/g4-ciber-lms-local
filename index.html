@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Marcos y Buenas Prácticas de Ciberseguridad | G4-CIBER-2026 LMS
+    </title>
+    <meta
+      name="description"
+      content="Plataforma LMS interactiva (Estilo Udemy + Campus Grupo Romero) para el curso autogestionado Marcos y Buenas Prácticas de Ciberseguridad (ISO/IEC 27001:2022, ISO/IEC 27002:2022, NIST CSF 2.0 y CIS Controls v8.1)."
+    />
+
+    <!-- Google Fonts (Inter + JetBrains Mono) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN (para ejecución local estática conectada a internet) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Estilos Personalizados -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-[#FAF8F6] text-[#1E293B] antialiased">
+    <!-- VISTA INICIAL DE REGISTRO E INGRESO CON ID SIN CONTRASEÑA -->
+    <div id="lms-onboarding-root" class="hidden"></div>
+
+    <!-- SHELL DEL CAMPUS VIRTUAL (VISIBLE TRAS REGISTRARSE / INGRESAR) -->
+    <div id="lms-campus-shell" class="min-h-screen flex flex-col">
+      <!-- 1. HEADER SUPERIOR FIJO (Campus Romero Light) -->
+      <header
+        id="lms-header"
+        class="no-print fixed top-0 left-0 right-0 z-40 h-20 bg-white/95 backdrop-blur-md border-b border-slate-200/80 text-[#1E293B] shadow-sm"
+      ></header>
+
+      <!-- CONTENEDOR PRINCIPAL DE TRABAJO BAJO EL HEADER FIJO -->
+      <div class="pt-20 flex-1 flex max-w-[1600px] w-full mx-auto relative">
+        <!-- 2. BARRA LATERAL IZQUIERDA PLEGABLE (Temario Estructurado - Desktop) -->
+        <aside
+          id="lms-sidebar-desktop"
+          class="no-print hidden lg:block w-80 xl:w-[340px] shrink-0 h-[calc(100vh-5rem)] sticky top-20 transition-all duration-300"
+        ></aside>
+
+        <!-- BARRA LATERAL MÓVIL (Drawer Desplegable) -->
+        <div
+          id="lms-mobile-drawer"
+          class="no-print hidden fixed inset-0 top-20 z-30 lg:hidden"
+        >
+          <div
+            id="lms-sidebar-mobile-content"
+            class="w-80 max-w-[85vw] h-full shadow-2xl bg-white"
+          ></div>
+          <div
+            id="mobile-sidebar-backdrop"
+            class="flex-1 bg-slate-950/50 backdrop-blur-sm"
+          ></div>
+        </div>
+
+        <!-- 3. CONTENEDOR PRINCIPAL DINÁMICO -->
+        <main
+          id="lms-main-content"
+          class="flex-1 min-w-0 p-4 sm:p-6 lg:p-8 overflow-y-auto"
+        ></main>
+      </div>
+    </div>
+
+    <!-- MODAL DE CERTIFICADO Y REQUISITOS -->
+    <div
+      id="lms-certificate-modal"
+      class="hidden fixed inset-0 z-50 items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm overflow-y-auto"
+    ></div>
+
+    <!-- SCRIPTS MODULARES (Sin ES Module CORS para funcionar directo en file:// o servidor local) -->
+    <script src="src/data/module1Data.js"></script>
+    <script src="src/data/module2Data.js"></script>
+    <script src="src/data/module3Data.js"></script>
+    <script src="src/data/module4Data.js"></script>
+    <script src="src/data/closureData.js"></script>
+    <script src="src/js/storage.js"></script>
+    <script src="src/js/campusViews.js"></script>
+    <script src="src/js/components.js"></script>
+    <script src="src/js/module2Components.js"></script>
+    <script src="src/js/module3Components.js"></script>
+    <script src="src/js/module4Components.js"></script>
+    <script src="src/js/closureComponents.js"></script>
+    <script src="src/js/app.js"></script>
+  </body>
+</html>
